@@ -1,0 +1,11 @@
+<button (click)="logout()">Logout</button>
+
+<h2>Browse</h2>
+
+<div *ngFor="let listing of listings" class="listing">
+	<h3>Title: {{ listing.title }}</h3>
+	<h4>Price: {{ listing.price | currency:USD:true }}</h4>
+	<h4>Location: {{ listing.location }}</h4>
+	<p>Description: {{ listing.description }}</p>
+	<button *ngIf="user === listing._user.email" (click)="deleteListing(listing)">Delete</button>
+</div>

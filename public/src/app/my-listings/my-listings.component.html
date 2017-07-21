@@ -1,0 +1,25 @@
+<button (click)="logout()">Logout</button>
+<h2>My Listings</h2>
+
+<!-- Add a bike! -->
+<div id="addBike">
+	<form (submit)="addBike(); addForm.reset()" #addForm="ngForm" >
+		<label for="title">Title: </label>
+			<input type="text" name="title" [(ngModel)]="newBicycle.title" #title="ngModel" required />
+		<label for="price">Price: </label>
+			<input type="number" name="price" [(ngModel)]="newBicycle.price" #price="ngModel" required />
+		<label for="location">Location: </label>
+			<input type="text" name="location" [(ngModel)]="newBicycle.location" #location="ngModel" required />
+		<label for="description">Description: </label>
+			<textarea name="description" rows="4" cols="40" [(ngModel)]="newBicycle.description" required></textarea>
+		<button [ngClass]="{blue: addForm.valid}" [disabled]="!addForm.valid" type="submit">Add Listing</button>
+	</form>
+</div>
+
+{{ newBicycle | json }}
+
+
+
+
+
+<!-- User listings here -->
